@@ -1,0 +1,575 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+    background: url('nepal railway.jpg') center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header-content, .hero-content, .footer-content {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 960px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    color: #DC143C;
+    text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#language-selector {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: none;
+    padding: 10px 15px;
+    margin: 0;
+    font-size: inherit;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+}
+
+#language-selector::-ms-expand {
+    display: none;
+}
+
+#language-selector::after {
+    content: '\279C';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: white;
+}
+
+#language-selector:hover {
+    color: lightgray;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.login-button, .signup-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #dc143c;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(255, 255, 255, 0.2) inset;
+}
+
+.signup-button {
+    background-color: #007bff;
+}
+
+.login-button:hover, .signup-button:hover {
+    transform: scale(1.03);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4), 1px 1px 3px rgba(255, 255, 255, 0.3) inset;
+}
+
+.login-button:active, .signup-button:active {
+    transform: scale(0.97);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: white;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+
+.welcome-message {
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.slogan {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #dc143c;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(255, 255, 255, 0.2) inset;
+}
+
+.cta-button:hover {
+    transform: scale(1.03);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4), 1px 1px 3px rgba(255, 255, 255, 0.3) inset;
+}
+
+.cta-button:active {
+    transform: scale(0.97);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    max-height: 70vh; /* Ensure modal doesn't take up too much viewport height */
+    overflow-y: auto; /* Add scrollbar for modal content if it overflows */
+    margin: 20px auto; /* Adjust top margin as needed */
+    padding: 20px;
+    border: none;
+    width: 250px;  /* Adjust as needed */
+    max-width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close {
+    position: left;
+    top: 10px; /* Adjust distance from top */
+    right: 10px; /* Adjust distance from right */
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container h2 {
+    font-size: 1.2em; /* Even smaller heading */
+    margin-bottom: 10px;
+    text-align: center;
+    color: #dc143c;
+    font-weight: 1500;
+    margin-bottom: 2px;
+    margin-top: 1px;
+    font-size: 25px;
+}
+
+.form-container button {
+    width: 100% ;
+    max-width: 350px;
+    padding: 12px;
+    margin-top: 15px;  /* Increased spacing */
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color:#003a80;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px; /* Set a max width */
+}
+
+label {
+    font-size: 0.8em; /* Even smaller label font */
+    margin-bottom: 3px;
+    display: block; /* Labels on their own line */
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100%); /* Adjust width for padding */
+    padding: 10px;
+    margin-bottom: 1px;
+    font-size: 0.8em; /* Even smaller input font */
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #2196F3; /* Light blue border on focus */
+    outline: none;
+    box-shadow: none;
+    margin-top: 1px;
+}
+
+button[type="submit"] {
+    width: calc(100% - 12px); /* Adjust width for padding */
+    padding: 8px 90px;
+    margin-bottom: 0px;
+    font-size: 0.8em; /* Even smaller input font */
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#signup-form button[type="submit"] { /* Target the specific submit button */
+    display: block; /* Make it a block element */
+    margin: 0 auto; /* Center horizontally */
+    width: auto;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: calc(100%);
+    font-size: 0.9em;
+}
+
+#signup-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+p {
+    font-size: 0.7em; /* Even smaller paragraph font */
+}
+
+hr {
+    margin: 12px 0; /* Adjust spacing around hr */
+}
+
+.or-container {
+    display: flex;
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    margin: 25px 0;
+}
+
+.or-container hr {
+    border: none;
+    height: 1px;
+    background-color: #eee;
+    flex-grow: 1; /* Allow hr to expand */
+}
+
+.or-container .or {
+    color: #aaa;
+    padding: 0 12px;
+    background-color: #fff;
+    z-index: 1;
+    font-size: 0.9em;
+    white-space: nowrap;
+    text-transform: lowercase;
+}
+.google-signup {
+    font-size: 0.8em; /* Smaller font for Google button */
+    background-color: transparent;
+    border: 1px solid #ccc;
+    width: calc(100%);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Center horizontally */
+    justify-content: center;
+    height: auto;
+}
+
+.google-signup img {
+    width: 20px; /* Smaller Google icon */
+    height: 20px;
+    margin-right: 10px;
+}
+
+.google-signup span {
+    font-size: 1em;
+}
+
+#signup-form p { /* Target the paragraph containing the "Log In" link */
+    text-align: center; /* Center the text */
+    font-size: 0.9em;
+}
+
+#signup-form p a { /* Target the link inside the paragraph */
+    text-decoration: none; /* Remove underline */
+    color:#0056b3;
+}
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.animate-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.welcome-message {
+    transition-delay: 0.2s;
+}
+
+.slogan {
+    transition-delay: 0.4s;
+}
+
+.hero.in-view .animate-element {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.flag-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 70px;
+    height: auto;
+    z-index: 10;
+}
+
+.flag-icon img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    background: transparent;
+    mix-blend-mode: multiply;
+}
+
+:root {
+    --modal-width: 400px; /* Adjust as needed */
+    --modal-max-width: 90%; /* Adjust as needed */
+    --modal-height: auto; /* Or a specific height if needed */
+    --modal-max-height: 90vh; /* Adjust as needed */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Adjust as needed */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Adjust as needed */
+    max-width: 250px; /* Adjust as needed */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative; /* For positioning the close button */
+}
+
+.close {
+    position: left;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+button.full-width {
+    width: 100%; /* Button matches input field width */
+    padding: 7px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#loginModal {
+    display: none;
+}
+
+/* Form Specific Styles */
+#booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Adjust spacing to match login form */
+}
+
+#booking-form label {
+    display: block; /* Labels on their own line */
+    margin-bottom: 1px;
+}
+
+#booking-form input,
+#booking-form select,
+#booking-form button {
+    width: calc(100% - 12px); /* Adjust width for padding and border */
+    padding: 8px;
+    margin-bottom: 1%;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+#booking-form button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+#login-Form button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    cursor: pointer;
+}
+
+#booking-Form button :hover{
+    background-color:#003a80 ;
+}
+
+/* for about us section */
+.about-section {
+    background: #003a80;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-section .container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-section h2 {
+    font-size: 36px;
+    color: #dc143c;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-section h3 {
+    font-size: 24px;
+    color: #dc143c;
+    margin-top: 30px;
+}
+
+.about-section p, 
+.about-section ul {
+    font-size: 18px;
+    color: #780a20;
+    line-height: 1.6;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-section ul li {
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.about-section{
+    cursor: pointer;
+}
+
+.footer-logo{
+    height: 200px;
+    width: 200px;
+    border-radius: 12px;
+}
