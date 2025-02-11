@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RamJanakiRail - Train Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="flag-icon flag-left">
+        <img src="Nepal_flag_with_emblem.gif" alt="Nepal Flag">
+    </div>
+
+    <header>
+        <div class="header-content">
+            <h1>RamJanakiRail</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <select id="language-selector">
+                            <option value="en">English</option>
+                            <option value="mai">Maithili</option>
+                            <option value="ne">Nepali</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="openLoginForm" class="login-button">Login</button>
+                <button id="openSignUpForm" class="signup-button">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="welcome-message animate-element">Welcome to RamJanakiRail</h2>
+            <p class="slogan animate-element">Book your train tickets with ease.</p>
+            <button id="openBookingForm" class="cta-button animate-element">Book Now</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 RamJanakiRail. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<!-- Login Form Modal -->
+<div id="loginForm" class="modal"style="display: none">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginForm')">&times;</span>
+        <div class="form-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required>
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required>
+                <button type="submit" class="full-width">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <!-- Sign Up Form -->
+    <div id="signUpForm" class="modal"style="display: none">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signUpForm')">&times;</span>
+            <div class="form-container">
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="name" required><br><br>
+
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required><br><br>
+
+                    <label for="password">Password*</label>
+                    <input type="password" id="password" name="password" required><br><br>
+
+                    <button type="submit">Sign Up</button>
+
+                    <p>Already have an account? <a href="#">Log In</a></p>
+
+                    <div class="or-container">
+                        <hr><span class="or">or</span><hr>
+                    </div>
+                    <button type="button" class="google-signup">
+                        <img src="google sign up.png" alt="Sign up with Google">
+                        <span>Sign Up With Google</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div id="bookingForm" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookingForm')">&times;</span>
+            <div class="form-container">
+                <h2>Book Your Ticket</h2>
+                <form id="booking-form">
+                    <label for="from">From:</label>
+                    <input type="text" id="from" name="from" autocomplete="off" required> 
+                    <div id="suggestions"></div><br><br>
+
+                    <label for="to">To:</label>
+                    <input type="text" id="to" name="to" required><br><br>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required><br><br>
+
+                    <label for="passengers">Passengers:</label>
+                    <input type="number" id="passengers" name="passengers" min="1" required><br><br>
+                    <label for="passengers details">Passengers details:</label>
+                    <input type="name" id="passengers details" name="passengers details"><br><br>
+                    <button type="submit">Book Ticket</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Developed in <strong>2025</strong> under <strong>CK97. Foundation, RamJanakiRail</strong>  is <strong>Nepal's</strong> first train booking website, created by two students in a dorm room. This platform aims to modernize railway travel by providing a seamless and efficient online ticket booking system.
+            RamJanakiRail primarily connects <strong>Janakpur</strong>, the capital city of <strong>State No. 2</strong>, with other major destinations across Nepal. With a focus on <strong>affordability, convenience, and punctuality</strong>, it <strong>offers modern coaches, competitive fares, and reliable scheduling</strong>, making train travel more accessible than ever.</p>
+    
+            <h3>Our Vision & Mission</h3>
+            <p>At <strong>RamJanakiRail</strong>, our vision is to<strong>revolutionize railway travel in Nepal</strong> by making ticket booking <strong>accessible, seamless, and convenient for everyone.</strong> As Nepal’s first train booking platform, our long-term goal is to place ticket booking in every hand, ensuring that passengers can reserve their seats anytime, anywhere, with just a few clicks.</p>
+    
+            <h3>Services We Offer</h3>
+            <ul>
+                <li>Express and local train services</li>
+                <li>Online and offline ticket booking</li>
+                <li>Luxury seating and catering services</li>
+
+            </ul>
+    
+            <h3>Routes & Connectivity</h3>
+            <p>Our trains connect major cities and regions across Nepal. We are constantly expanding our network to serve you better.</p>
+    
+            <h3>Safety & Sustainability</h3>
+            <p>Passenger safety is our top priority. We implement the latest technologies and eco-friendly initiatives for a greener future.</p>
+    
+            <h3>Contact Us</h3>
+            <img src="Black And White Aesthetic Minimalist Modern Simple Typography Coconut Cosmetics Logo.png" alt="RamJanakiRail Logo" class="footer-logo">
+            <p>For inquiries, reach us at <strong>support@ramjanakirail.com</strong> or call us at <strong>+977-XXXXXXXXXX</strong>.</p>
+        </div>
+    </section>    
+
+    <script src="script.js"></script>
+</body>
+</html>
